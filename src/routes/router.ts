@@ -1,6 +1,7 @@
 import type { Router } from "framework7/types";
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
+import TimelinePage from '../pages/timeline.vue';
 import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
@@ -14,6 +15,10 @@ var routes: Router.RouteParameters[] = [
   {
     path: '/about/',
     component: AboutPage,
+  },
+  {
+    path: '/timeline/',
+    component: TimelinePage,
   },
   {
     path: '/settings/',

@@ -76,7 +76,7 @@ const colors: string[] = Object.keys(f7.colors).filter(
 
 const setColorTheme = (c: string): void => {
   hexColor.value = f7.colors[c];
-  f7.setColorTheme(hexColor.value);
+  f7.setColorTheme(hexColor.value!);
   localStorage.setItem("themeColor", hexColor.value!);
 };
 

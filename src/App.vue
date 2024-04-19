@@ -25,15 +25,19 @@
       <!-- Tabbar for switching views-tabs -->
       <f7-toolbar tabbar labels bottom>
         <f7-link tab-link="#view-home" tab-link-active>
-          <i class="i-tabler-home w-6 h-6" />
+          <i class="i-tabler-home w-6 h-6"/>
           <span class="normal-case text-sm">Home</span>
         </f7-link>
         <f7-link tab-link="#view-about">
-          <i class="i-tabler-user w-6 h-6" />
+          <i class="i-tabler-user w-6 h-6"/>
           <span class="normal-case text-sm">About</span>
         </f7-link>
+        <f7-link tab-link="#view-timeline">
+          <i class="i-tabler-calendar w-6 h-6"/>
+          <span class="normal-case text-sm">Timeline</span>
+        </f7-link>
         <f7-link tab-link="#view-settings">
-          <i class="i-tabler-settings w-6 h-6" />
+          <i class="i-tabler-settings w-6 h-6"/>
           <span class="normal-case text-sm">Settings</span>
         </f7-link>
       </f7-toolbar>
@@ -44,12 +48,15 @@
       <!-- About View -->
       <f7-view id="view-about" name="about" tab url="/about/"></f7-view>
 
+      <!-- Timeline View -->
+      <f7-view id="view-timeline" name="timeline" tab url="/timeline/"></f7-view>
+
       <!-- Settings View -->
       <f7-view
-        id="view-settings"
-        name="settings"
-        tab
-        url="/settings/"
+          id="view-settings"
+          name="settings"
+          tab
+          url="/settings/"
       ></f7-view>
     </f7-views>
 
@@ -75,25 +82,25 @@
           <f7-login-screen-title>Login</f7-login-screen-title>
           <f7-list form>
             <f7-list-input
-              type="text"
-              name="username"
-              placeholder="Your username"
-              v-model:value="username"
+                type="text"
+                name="username"
+                placeholder="Your username"
+                v-model:value="username"
             ></f7-list-input>
             <f7-list-input
-              type="password"
-              name="password"
-              placeholder="Your password"
-              v-model:value="password"
+                type="password"
+                name="password"
+                placeholder="Your password"
+                v-model:value="password"
             ></f7-list-input>
           </f7-list>
           <f7-list>
             <f7-list-button
-              title="Sign In"
-              @click="alertLoginData"
+                title="Sign In"
+                @click="alertLoginData"
             ></f7-list-button>
             <f7-block-footer>
-              Some text about login information.<br />Click "Sign In" to close
+              Some text about login information.<br/>Click "Sign In" to close
               Login Screen
             </f7-block-footer>
           </f7-list>
@@ -103,7 +110,7 @@
   </f7-app>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import {ref, onMounted} from "vue";
 import {
   f7,
   f7ready,
@@ -128,6 +135,16 @@ import {
 import { getDevice } from "framework7/lite-bundle";
 import capacitorApp from "./capacitor-app";
 import routes from "./routes/router";
+import {testData} from "./types/DataTest";
+import {Models} from "./types/Models";
+import {useDailyEntries} from "./stores/daily-entries";
+
+const model = Models.fromJson(testData);
+
+const entries = useDailyEntries();
+
+model.sortEntriesByDate().forEach(entries.appendEntry);
+model.tags.forEach(entries.appendTag);
 
 const device = getDevice();
 // Framework7 Parameters
@@ -155,10 +172,10 @@ const password = ref("");
 
 const alertLoginData = () => {
   f7.dialog.alert(
-    "Username: " + username.value + "<br>Password: " + password.value,
-    () => {
-      f7.loginScreen.close();
-    }
+      "Username: " + username.value + "<br>Password: " + password.value,
+      () => {
+        f7.loginScreen.close();
+      }
   );
 };
 onMounted(() => {
