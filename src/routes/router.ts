@@ -6,6 +6,7 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
+import EntryVue from "../pages/entry-vue.vue";
 
 var routes: Router.RouteParameters[] = [
   {
@@ -24,7 +25,13 @@ var routes: Router.RouteParameters[] = [
     path: '/settings/',
     component: SettingsPage,
   },
-
+  {
+    path: '/entries/:year/:month/:day/',
+    component: EntryVue,
+    options: {
+      transition: 'f7-parallax',
+    }
+  },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,

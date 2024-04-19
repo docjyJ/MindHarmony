@@ -23,23 +23,28 @@
     <!-- Views/Tabs container -->
     <f7-views tabs class="safe-areas">
       <!-- Tabbar for switching views-tabs -->
-      <f7-toolbar tabbar labels bottom>
-        <f7-link tab-link="#view-home" tab-link-active>
-          <i class="i-tabler-home w-6 h-6"/>
-          <span class="normal-case text-sm">Home</span>
-        </f7-link>
-        <f7-link tab-link="#view-about">
-          <i class="i-tabler-user w-6 h-6"/>
-          <span class="normal-case text-sm">About</span>
-        </f7-link>
-        <f7-link tab-link="#view-timeline">
-          <i class="i-tabler-calendar w-6 h-6"/>
-          <span class="normal-case text-sm">Timeline</span>
-        </f7-link>
-        <f7-link tab-link="#view-settings">
-          <i class="i-tabler-settings w-6 h-6"/>
-          <span class="normal-case text-sm">Settings</span>
-        </f7-link>
+      <f7-toolbar tabbar icons bottom>
+        <f7-link
+            tab-link="#view-home"
+            tab-link-active
+            text="Home"
+            icon="i-material-symbols-home-outline?bg"
+        />
+        <f7-link
+            tab-link="#view-about"
+            text="About"
+            icon="i-material-symbols-person-outline?bg"
+        />
+        <f7-link
+            tab-link="#view-timeline"
+            text="Timeline"
+            icon="i-material-symbols-calendar-view-day-outline?bg"
+        />
+        <f7-link
+            tab-link="#view-settings"
+            text="Settings"
+            icon="i-material-symbols-settings-outline?bg"
+        />
       </f7-toolbar>
 
       <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
@@ -52,12 +57,7 @@
       <f7-view id="view-timeline" name="timeline" tab url="/timeline/"></f7-view>
 
       <!-- Settings View -->
-      <f7-view
-          id="view-settings"
-          name="settings"
-          tab
-          url="/settings/"
-      ></f7-view>
+      <f7-view id="view-settings" name="settings" tab url="/settings/"></f7-view>
     </f7-views>
 
     <!-- Popup -->
@@ -132,7 +132,7 @@ import {
   f7ListInput,
   f7ListButton,
 } from "framework7-vue";
-import { getDevice } from "framework7/lite-bundle";
+import {getDevice} from "framework7/lite-bundle";
 import capacitorApp from "./capacitor-app";
 import routes from "./routes/router";
 import {testData} from "./types/DataTest";

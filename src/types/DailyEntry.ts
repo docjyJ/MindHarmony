@@ -12,23 +12,31 @@ export enum Rating {
 }
 
 export class EntryDate {
+    private readonly date: Date
     readonly year: number
     readonly month: number
     readonly day: number
     readonly dayOfWeek: number
     readonly weekNumber: number
-    readonly monthShort: string
-    readonly dayLong: string
 
     constructor(date: Date) {
+        this.date = date
         this.year = date.getFullYear()
-        this.month = date.getMonth()
+        this.month = date.getMonth() + 1;
         this.day = date.getDate()
         this.dayOfWeek = date.getDay()
         if (this.dayOfWeek === 0) this.dayOfWeek = 7
         this.weekNumber = Math.floor((date.getTime() + 259200000) / 604800000)
-        this.monthShort = date.toLocaleDateString('fr-FR', {month: 'short'}).toUpperCase()
-        this.dayLong = date.toLocaleDateString('fr-FR', {weekday: 'long'})
+    }
+
+    fullLocale(locales = 'fr-FR') {
+        return this.date.toLocaleDateString(locales, {weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'})
+    }
+    monthShortLocale(locales = 'fr-FR') {
+        return this.date.toLocaleDateString(locales, {month: 'long'}).toUpperCase()
+    }
+    weekDayLocale(locales = 'fr-FR') {
+        return this.date.toLocaleDateString(locales, {weekday: 'long'})
     }
 
     toString(): string {
