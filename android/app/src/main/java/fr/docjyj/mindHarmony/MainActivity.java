@@ -1,4 +1,4 @@
-package com.example.app;
+package fr.docjyj.mindHarmony;
 
 import com.getcapacitor.BridgeActivity;
 

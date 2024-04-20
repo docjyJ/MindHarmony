@@ -149,9 +149,9 @@ model.tags.forEach(entries.appendTag);
 const device = getDevice();
 // Framework7 Parameters
 const f7params = {
-  name: "F7-Vue Typescript", // App name
+  name: "Mind Harmony", // App name
   theme: "auto", // Automatic theme detection
-  id: "com.example.app", // App bundle ID
+  id: "fr.docjyj.mindHarmony", // App bundle ID
   // App routes
   routes: routes,
 

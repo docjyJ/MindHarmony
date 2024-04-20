@@ -1,10 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'f7-vue-typescript',
-  webDir: 'dist',
-  bundledWebRuntime: false
+  appId: 'fr.docjyj.mindHarmony',
+  appName: 'Mind Harmony',
+  webDir: 'dist'
 };
 
 export default config;
