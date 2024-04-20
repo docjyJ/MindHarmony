@@ -1,21 +1,20 @@
 <template>
-  <f7-chip :text="eventTag.tag.title" color="neutral">
+  <f7-chip :text="tag.title" color="neutral">
     <template #media>
-      <f7-icon md="i-openmoji:globe-showing-europe-africa" />
+      <f7-icon :icon="`i-openmoji:${tag.emoji} w-24px h-24px`"/>
     </template>
   </f7-chip>
-  {{ eventTag.tag}}
 </template>
 
 <script setup lang="ts">
-
-import {EventTag} from "../types/EventTag";
+import {defineProps} from 'vue';
+import {f7Chip, f7Icon} from "framework7-vue";
+import {EventTag} from "@/types/EventTag";
 
 interface Props {
   tag: EventTag;
 }
 
-const eventTag = defineProps<Props>();
+const {tag} = defineProps<Props>();
 
 </script>
-L

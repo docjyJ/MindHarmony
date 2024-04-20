@@ -10,8 +10,7 @@
       class="flex items-center uppercase tracking-wider text-color-primary"
       text="lg"
       font="bold title"
-      ><i class="i-simple-icons-framework7 w-5 h-5 mr-1"></i> F7-Vue
-      TypeScript</f7-nav-title
+      ><i class="i-simple-icons-framework7 w-5 h-5 mr-1"></i>Mind Harmony</f7-nav-title
     >
     <f7-nav-right>
       <div class="flex items-center">
@@ -104,7 +103,7 @@ onMounted(() => {
 watch(
   () => isDark.value,
   (val: boolean) => {
-    if (val === true) {
+    if (val) {
       f7.setDarkMode(true);
       // Persist darkMode value in localStorage
       localStorage.setItem("darkMode", "true");

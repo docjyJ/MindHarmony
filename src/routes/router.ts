@@ -8,7 +8,7 @@ import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
 import EntryVue from "../pages/entry-vue.vue";
 
-var routes: Router.RouteParameters[] = [
+const routes: Router.RouteParameters[] = [
   {
     path: '/',
     component: HomePage,
@@ -38,20 +38,20 @@ var routes: Router.RouteParameters[] = [
   },
   {
     path: '/request-and-load/user/:userId/',
-    async: function ({ router, to, resolve }: {  router: any; to: any; resolve: any }) {
+    async: function ({router, to, resolve}: { router: any; to: any; resolve: any }) {
       // App instance
-      var app = router.app;
+      const app = router.app;
 
       // Show Preloader
       app.preloader.show();
 
       // User ID from request
-      var userId = to.params.userId;
+      const userId = to.params.userId;
 
       // Simulate Ajax Request
       setTimeout(function () {
         // We got user data from request
-        var user = {
+        const user = {
           firstName: 'Vladimir',
           lastName: 'Kharlampidi',
           about: 'Hello, i am creator of Framework7! Hope you like it!',
@@ -71,14 +71,14 @@ var routes: Router.RouteParameters[] = [
 
         // Resolve route to load page
         resolve(
-          {
-            component: RequestAndLoad,
-          },
-          {
-            props: {
-              user: user,
+            {
+              component: RequestAndLoad,
+            },
+            {
+              props: {
+                user: user,
+              }
             }
-          }
         );
       }, 1000);
     },

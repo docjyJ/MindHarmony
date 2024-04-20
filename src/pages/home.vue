@@ -139,7 +139,7 @@ import {
   f7BlockTitle,
   f7ListInput,
 } from "framework7-vue";
-import Navbar from "../components/Navbar.vue";
-import { useCounterStore } from "../stores/counter";
+import Navbar from "@/components/Navbar.vue";
+import { useCounterStore } from "@/stores/counter";
 const counter = useCounterStore();
 </script>

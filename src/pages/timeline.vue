@@ -27,9 +27,9 @@
 </template>
 <script setup lang="ts">
 import {f7Page, f7Navbar, f7BlockTitle, f7List, f7ListItem} from 'framework7-vue';
-import {useDailyEntries} from "../stores/daily-entries";
-import EventTag from "../components/event-tag.vue";
-import RatingIcon from "../components/rating-icon.vue";
+import {useDailyEntries} from "@/stores/daily-entries";
+import EventTag from "@/components/event-tag.vue";
+import RatingIcon from "@/components/rating-icon.vue";
 
 const entriesState = useDailyEntries();
 </script>

@@ -33,10 +33,10 @@
 <script setup lang="ts">
 import {f7List, f7ListInput, f7ListItem, f7Navbar, f7Page} from "framework7-vue";
 import type {Router} from "framework7/types";
-import {useDailyEntries} from "../stores/daily-entries";
-import {Rating} from "../types/DailyEntry";
-import RatingIcon from "../components/rating-icon.vue";
-import EventTag from "../components/event-tag.vue";
+import {useDailyEntries} from "@/stores/daily-entries";
+import {Rating} from "@/types/DailyEntry";
+import RatingIcon from "@/components/rating-icon.vue";
+import EventTag from "@/components/event-tag.vue";
 
 interface Props {
   f7route: Router.Route;
