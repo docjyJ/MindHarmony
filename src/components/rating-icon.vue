@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import {defineProps} from 'vue';
 import {f7Icon} from "framework7-vue";
-import {Rating} from "@/types/DailyEntry";
+import {Rating} from "@/types/Journal";
 import {computed} from "vue";
 
 const props = defineProps({

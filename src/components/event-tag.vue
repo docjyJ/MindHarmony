@@ -9,10 +9,10 @@
 <script setup lang="ts">
 import {defineProps} from 'vue';
 import {f7Chip, f7Icon} from "framework7-vue";
-import {EventTag} from "@/types/EventTag";
+import {Sticker} from "@/types/Sticker";
 
 interface Props {
-  tag: EventTag;
+  tag: Sticker;
 }
 
 const {tag} = defineProps<Props>();

@@ -137,14 +137,14 @@ import capacitorApp from "./capacitor-app";
 import routes from "./routes/router";
 import {testData} from "./types/DataTest";
 import {Models} from "./types/Models";
-import {useDailyEntries} from "./stores/daily-entries";
+import {useJournals} from "./stores/journals";
 
 const model = Models.fromJson(testData);
 
-const entries = useDailyEntries();
+const entries = useJournals();
 
-model.sortEntriesByDate().forEach(entries.appendEntry);
-model.tags.forEach(entries.appendTag);
+model.sortEntriesByDate().forEach(entries.pushJournal);
+model.tags.forEach(entries.pushSticker);
 
 const device = getDevice();
 // Framework7 Parameters

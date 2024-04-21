@@ -7,7 +7,7 @@
         <select>
           <option
               v-for="rating in [Rating.EXTREMELY_BAD, Rating.VERY_BAD, Rating.BAD,  Rating.NEUTRAL, Rating.GOOD, Rating.VERY_GOOD, Rating.EXTREMELY_GOOD]"
-              :value="rating" :selected="entry?.mood === rating">
+              :value="rating" :selected="entry?.rate === rating">
             <rating-icon :mood="rating"/>
             {{ rating }}
           </option>
@@ -22,7 +22,7 @@
                      :value="entry?.story"
       />
       <f7-list-item>
-        <event-tag v-for="tag in entry?.tags" :tag="tag"/>
+        <event-tag v-for="tag in entry?.stickers" :tag="tag"/>
       </f7-list-item>
 
     </f7-list>
@@ -33,8 +33,8 @@
 <script setup lang="ts">
 import {f7List, f7ListInput, f7ListItem, f7Navbar, f7Page} from "framework7-vue";
 import type {Router} from "framework7/types";
-import {useDailyEntries} from "@/stores/daily-entries";
-import {Rating} from "@/types/DailyEntry";
+import {useJournals} from "@/stores/journals";
+import {Rating} from "@/types/Journal";
 import RatingIcon from "@/components/rating-icon.vue";
 import EventTag from "@/components/event-tag.vue";
 
@@ -45,5 +45,5 @@ interface Props {
 
 const {f7route, f7router} = defineProps<Props>();
 
-const entry = useDailyEntries().entryByDate(Number(f7route.params.year), Number(f7route.params.month), Number(f7route.params.day));
+const entry = useJournals().entryByDate(Number(f7route.params.year), Number(f7route.params.month), Number(f7route.params.day));
 </script>
