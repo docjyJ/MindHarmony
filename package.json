@@ -26,7 +26,6 @@
   "devDependencies": {
     "@capacitor/cli": "^5.5.1",
     "@iconify-json/simple-icons": "^1.1.76",
-    "@iconify-json/openmoji": "^1.1.51",
     "@iconify-json/material-symbols": "^1.1.78",
     "@types/node": "^20.8.9",
     "@unocss/preset-attributify": "^0.57.1",

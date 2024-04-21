@@ -27,7 +27,6 @@ export default defineConfig({
             // ...
         },
     },
-    //safelist: Object.values(chars).map(i => `i-openmoji:${i}`),
     presets: [
         presetUno(),
         presetAttributify(),

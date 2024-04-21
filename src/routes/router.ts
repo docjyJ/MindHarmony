@@ -6,7 +6,7 @@ import SettingsPage from '../pages/settings.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
-import EntryVue from "../pages/entry-vue.vue";
+import EntryVue from "../pages/journal-view.vue";
 
 const routes: Router.RouteParameters[] = [
   {

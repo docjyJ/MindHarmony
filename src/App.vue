@@ -136,15 +136,17 @@ import {getDevice} from "framework7/lite-bundle";
 import capacitorApp from "./capacitor-app";
 import routes from "./routes/router";
 import {testData} from "./types/DataTest";
-import {Models} from "./types/Models";
 import {useJournals} from "./stores/journals";
+import {JsonToModels} from "@/types/ParserV1";
 
-const model = Models.fromJson(testData);
+const model = JsonToModels(testData);
 
-const entries = useJournals();
 
-model.sortEntriesByDate().forEach(entries.pushJournal);
-model.tags.forEach(entries.pushSticker);
+const journals = useJournals();
+
+journals.stickers = model.stickers;
+journals.entries = model.journals.sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
 
 const device = getDevice();
 // Framework7 Parameters

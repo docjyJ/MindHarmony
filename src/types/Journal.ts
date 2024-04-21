@@ -14,6 +14,12 @@ export enum Rating {
 export class DateOnly {
     private readonly _date = new Date(0)
 
+    constructor(date: Date | DateOnly) {
+        this._date.setFullYear(date.getFullYear())
+        this._date.setMonth(date.getMonth())
+        this._date.setDate(date.getDate())
+    }
+
     getFullYear = this._date.getFullYear
     setFullYear = this._date.setFullYear
     getMonth = this._date.getMonth
@@ -26,7 +32,7 @@ export class DateOnly {
     }
 
     valueOf() {
-        return this._date.valueOf() % 86400000
+        return Math.floor(this._date.valueOf() / 86400000)
     }
 
     get year() {
@@ -64,18 +70,16 @@ export class DateOnly {
 }
 
 export class Journal {
-    private readonly _date = new DateOnly()
-    private readonly _stickers: Sticker[] = []
+    private readonly _date : DateOnly
+    private readonly _stickers: Sticker[]
     private _rate
     private _story
 
     constructor(date: Date | DateOnly, rate: Rating, story: string, stickers: Sticker[]) {
-        this._date.setDate(date.getDate())
-        this._date.setMonth(date.getMonth())
-        this._date.setFullYear(date.getFullYear())
+        this._date = new DateOnly(date)
         this._rate = rate;
         this._story = story;
-        stickers.forEach(sticker => this._stickers.push(sticker));
+        this._stickers = Object.assign([], stickers);
     }
 
     get date(): DateOnly {
